@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<odoo>
+    <data>
+
+         <record id="view_pedido_tree" model="ir.ui.view">
+            <field name="name">reto.pedido.tree</field>
+            <field name="model">reto.pedido</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="num_pedido"/>
+                    <field name="linea_pedido_ids"/>
+                    <field name="fecha_compra"/>
+                    <field name="base"/>
+                    <field name="precio_total"/>
+
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_pedido_form" model="ir.ui.view">
+            <field name="name">reto.pedido.form</field>
+            <field name="model">reto.pedido</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <center>
+                            <h1 style="color: green">Nuevo Pedido</h1>
+                        </center>
+                        <header>
+                            <button string="Aprobar" type="object" name="aprobar_presupuesto"
+                            class="oe_highligth" states="borrador"/>
+                            <button string="Cancelar" type="object" name="cancelar_presupuesto"
+                                class="oe_highligth" states="borrador, aprobado"/>
+                            <field name="state" widget="statusbar" statusbar_visible="borrador,aprobado"/>
+                        </header>
+                        <group>
+                            <field name="linea_pedido_ids"/>
+                        </group>
+                        <group>
+                            <field name="num_pedido" readonly="1"/>
+                        </group>
+                         <group>
+                             <field name="fecha_compra"/>
+                             <field name="base"/>
+                             <field name="precio_total"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+        <record id="view_pedido_kanban" model="ir.ui.view">
+            <field name="name">reto.pedido.kanban</field>
+            <field name="model">reto.pedido</field>
+            <field name="arch" type="xml">
+                <kanban>
+                    <field name="fecha_compra"/>
+                    <field name="num_pedido"/>
+                    <field name="tot_prendas_pedido"/>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div class="oe_kanban_global_click">
+                                <div class="oe_kanban_image" t-if="record.image">
+                                    <img t-att-src="'data:image/png;base64,'+record.image" t-att-alt="record.name.value"/>
+                                </div>
+                                <div class="oe_kanban_details">
+                                    <strong class="oe_kanban_title">Nombre: <span t-field="record.name.value"/></strong>
+                                    <div class="oe_kanban_content">Fecha de Compra: <span t-field="record.fecha_compra.value"/></div>
+                                    <div class="oe_kanban_content">Número de Pedido: <span t-field="record.num_pedido.value"/></div>
+                                    <div class="oe_kanban_content">Total Prendas en Pedido: <span t-field="record.tot_prendas_pedido.value"/></div>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+
+        <record id="view_linea_pedido_tree" model="ir.ui.view">
+            <field name="name">reto.linea.pedido.tree</field>
+            <field name="model">reto.linea.pedido</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="prenda_id"/>
+                    <field name="color_id"/>
+                    <field name="talla_id"/>
+                    <field name="cantidad_p"/>
+                    <field name="p_total"/>
+                </tree>
+            </field>
+        </record>
+
+         <record id="view_linea_pedido_form" model="ir.ui.view">
+            <field name="name">reto.linea.pedido.form</field>
+            <field name="model">reto.linea.pedido</field>
+            <field name="arch" type="xml">
+                <form>
+                    <group>
+                        <field name="id_proveedor"/>
+                        <field name="prenda_id"/>
+
+                    </group>
+                    <group>
+                        <field name="color_id"/>
+                        <field name="talla_id"/>
+                    </group>
+                    <group>
+                        <field name="cantidad_p"/>
+                        <field name="precio_p_may"/>
+                        <field name="p_total" readonly="1" forcé_save="1"/>
+                    </group>
+            </form>
+            </field>
+        </record>
+
+    </data>
+</odoo>
+

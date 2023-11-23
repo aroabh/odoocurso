@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<odoo>
+    <record id="view_prenda_tree" model="ir.ui.view">
+        <field name="name">Vista de lista de prenda</field>
+        <field name="model">reto.prenda</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name" />
+                <field name="precio_may"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_prenda_form" model="ir.ui.view">
+        <field name="name">Vista de formulario de prenda</field>
+        <field name="model">reto.prenda</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <field name="name" />
+                    <field name="genero" />
+                    <field name="p_tipo" />
+                    <field name="imagen" />
+                    <field name="p_colores">
+                        <tree editable="true">
+                            <control>
+                                <create name="add_product_control" string="agregar color"/>
+                            </control>
+                            <field name="prenda_id" invisible="1"/>
+                            <field name="color_id"/>
+                        </tree>
+                    </field>
+                    <field name="p_talla">
+                        <tree editable="true">
+                            <control>
+                                <create name="add_product_control" string="agregar talla"/>
+                            </control>
+                            <field name="prenda_id" invisible="1"/>
+                            <field name="talla_id"/>
+                        </tree>
+                    </field>
+                    <field name="proveedor_ids"/>
+                    <field name="precio_may"/>
+                </group>
+            </form>
+        </field>
+    </record>
+</odoo>

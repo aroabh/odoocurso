@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="secuencia_numero_pedido" model="ir.sequence">
+        <field name="name">Secuencia para números de los pedidos</field> <!--Nombre de la secuencia-->
+        <field name="implementation">no_gap</field> <!--Garantiza que no hay huecos en la secuencia-->
+        <field name="code">secuencia.numero.pedido</field><!--Un string para identificar la secuencia-->
+        <field name="padding">3</field> <!--Padding-->
+        <field name="number_increment">1</field> <!--Incremento de la secuencia-->
+    </record>
+
+    <record id="secuencia_numero_venta" model="ir.sequence">
+        <field name="name">Secuencia para números de las ventas</field> <!--Nombre de la secuencia-->
+        <field name="implementation">no_gap</field> <!--Garantiza que no hay huecos en la secuencia-->
+        <field name="code">secuencia.numero.venta</field><!--Un string para identificar la secuencia-->
+        <field name="padding">3</field> <!--Padding-->
+        <field name="number_increment">1</field> <!--Incremento de la secuencia-->
+    </record>
+</odoo>

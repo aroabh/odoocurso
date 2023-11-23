@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<odoo>
+<!-- Categoría padre -->
+    <record id="module_category_tienda" model="ir.module.category">
+    <!-- texto que apracecerá en la categoría padre -->
+        <field name="name">Tienda</field>
+        <!-- el orden en el que aparece-->
+        <field name="sequence">1</field>
+    </record>
+        <!-- Categoría hijo -->
+    <record id="module_category_tienda_tienda" model="ir.module.category">
+        <field name="name">Tienda</field>
+        <field name="sequence">1</field>
+        <field name="parent_id" ref="module_category_tienda"/>
+    </record>
+        <!-- Grupos -->
+    <record id="group_tienda_administrador" model="res.groups">
+        <field name="name">Administrador: puede ver todo</field>
+        <field name="category_id" ref="module_category_tienda_tienda"/>
+        <!-- Se relaciona este grupo con el administrador, para que
+        lo coja por defecto al instalar el módulo -->
+        <field name="implied_ids" eval="[(4,ref('group_tienda_usuario'))]" />
+    </record>
+    <record id="group_tienda_dependiente" model="res.groups">
+        <field name="name">Dependiente: Solo puede ver sus propios pedidos</field>
+        <field name="category_id" ref="module_category_tienda_tienda"/>
+    </record>
+    <record id="group_tienda_usuario" model="res.groups">
+        <field name="name">Usuario: Solo puede ver sus propios pedidos</field>
+        <field name="category_id" ref="module_category_tienda_tienda"/>
+    </record>
+</odoo>

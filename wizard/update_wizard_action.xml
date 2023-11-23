@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<odoo>
+    <!-- Define la acción del servidor -->
+    <record id="action_update_wizard" model="ir.actions.server">
+        <field name="name">Acción para mostrar el pop-up</field>
+        <field name="model_id" ref="model_reto_ventas" />
+        <field name="state">code</field>
+        <field name="code">
+action = self.env.ref('tienda_ropa.action_open_update_wizard').read()[0]
+action['context'] = {'default_name': self.env.context.get('default_name', 'Mensaje de advertencia predeterminado')}
+action
+        </field>
+    </record>
+</odoo>
+

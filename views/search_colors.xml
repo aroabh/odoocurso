@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<odoo>
+
+    <record id="search_colors" model="ir.ui.view">
+        <field name="model">reto.prenda</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="p_tipo"/>
+                <field name="p_colores"/>
+                <field name="p_talla"/>
+                <field name="genero" />
+                <filter name="gender1" string="Hombre" domain="[('genero','=','Hombre')]" />
+                <filter name="gender2" string="Mujer" domain="[('genero','=','Mujer')]" />
+                <filter name="gender3" string="Unisex" domain="[('genero','=','Unisex')]" />
+                <filter name="gender4" string="Mascotas" domain="[('genero','=','Mascotas')]" />
+            </search>
+        </field>
+    </record>
+
+</odoo>
+
+  <!--     <field name="p_campana"/>  -->
+               <!-- <filter name="stock" string = "En Stock" domain="[('stock', '>','0')]"/> -->

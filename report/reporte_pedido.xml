@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="action_report_ventas" model="ir.actions.report">
+        <field name="name">Presupuesto de venta</field>
+        <field name="model">reto.ventas</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">tienda_ropa.report_ventas</field>
+        <field name="report_file">tienda_ropa.report_ventas</field>
+        <field name="print_report_name">('Presupuesto - %s' %(object.name))</field>
+        <field name="binding_model_id" ref="model_reto_ventas"/>
+        <field name="binding_type">report</field>
+    </record>
+
+    <template id="report_ventas">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <center>
+
+                    <t t-if="o.state == 'borrador'">
+                        <div class="alert alert-danger" role="alert">El estado de este presupuesto es Borrador.
+                        </div>
+                    </t>
+                    <t t-else="">
+                        <div class="alert alert-primary" role="alert">El estado de este presupuesto es Aprobado.
+                        </div>
+                    </t>
+                </center>
+                        <div class="row">
+                    <div class="col-3">
+
+                    </div>
+                    <div class="col-9">
+                        <h2><span t-field="o.name"/></h2>
+                        <ul class="list-inline" style="font-size:20px;">
+                            <li t-if="o.fecha_venta">Fecha de venta: <span t-field="o.fecha_venta"/></li>
+                            <li t-if="o.cliente">Cliente: <span t-field="o.cliente"/></li>
+                        </ul>
+                    </div>
+                </div>
+                        <table class="table table-sm" style="margin-top:30px;">
+                            <thead>
+                        <th>Pedido</th>
+                        <th>Proveedor</th>
+                        <th>Prenda</th>
+                        <th>Talla</th>
+                        <th>Color</th>
+                        <th>Precio venta</th>
+                        <th>Cantidad</th>
+                        <th>Precio total</th>
+                    </thead>
+                            <tbody>
+                    <t t-set="ctd_lineas" t-value="0"/>
+                        <tr t-foreach="o.linea_venta_ids" t-as="l">
+                            <td><span t-field="l.name"/></td>
+                            <td><span t-field="l.id_proveedor"/></td>
+                            <td><span t-field="l.prenda_id"/></td>
+                            <td><span t-field="l.talla_id"/></td>
+                            <td><span t-field="l.color_id"/></td>
+                            <td><span t-field="l.precio_p_venta"/></td>
+                            <td><span t-field="l.cantidad_p"/></td>
+                            <td><span t-field="l.p_total"/></td>
+                            <t t-set="ctd_lineas" t-value="ctd_lineas+1"/>
+                        </tr>
+                    </tbody>
+                        </table>
+                        <div class="row justify-content-end" style="padding-top: 30px;">
+                            <div class="col-3">
+                    <table class="table table-sm">
+                        <tbody>
+                            <tr>
+                                <td>Subtotal:</td>
+                                <td class="text-right"><span t-field="o.base"/></td>
+                            </tr>
+                            <tr>
+                                <td>Impuestos:</td>
+                                <td class="text-right"><span t-field="o.impuestos"/></td>
+                            </tr>
+                            <tr>
+                                <td>Total:</td>
+                                <td class="text-right"><span t-field="o.precio_total"/></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                        </div>
+                        <div class="row" style="padding-top: 30px;">
+                            <spam>El presente presupuesto cuenta con
+                                <t t-esc="ctd_lineas"/> lineas de detalle.</spam>
+                        </div>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>

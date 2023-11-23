@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<odoo>
+
+    <record id="action_open_prenda" model="ir.actions.act_window">
+        <field name="name">Prenda</field>
+        <field name="res_model">reto.prenda</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="action_open_pedido" model="ir.actions.act_window">
+        <field name="name">Pedido</field>
+        <field name="res_model">reto.pedido</field>
+        <field name="view_mode">tree,form,kanban</field>
+    </record>
+
+    <record id="action_open_ventas" model="ir.actions.act_window">
+        <field name="name">Ventas</field>
+        <field name="res_model">reto.ventas</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="action_open_stock" model="ir.actions.act_window">
+        <field name="name">Stock</field>
+        <field name="res_model">reto.stock</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="action_open_linea_pedido" model="ir.actions.act_window">
+        <field name="name">Linea Pedido</field>
+        <field name="res_model">reto.linea.pedido</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+
+    <menuitem id="menu_1" name="Tienda de Ropa"/>
+
+    <menuitem id="menu_2" name="Prenda" parent="menu_1" action="action_open_prenda" sequence="1"/>
+
+    <menuitem id="menu_2_pedido" name="Pedido" parent="menu_1" action="action_open_pedido"/>
+
+
+    <menuitem id="menu_2_ventas" name="Ventas" parent="menu_1" action="action_open_ventas"/>
+    <menuitem id="menu_2_stock" name="Stock" parent="menu_1" action="action_open_stock"/>
+
+
+</odoo>
+
+
+
+
+  <!--  <record id="action_open_prendas_sumatorio" model="ir.actions.act_window">
+        <field name="name">Prendas Sumatorio</field>
+        <field name="res_model">prendas_sumatorio</field>
+        <field name="view_mode">tree,form</field>
+    </record> -->
+
+    <!--  <record id="action_open_campanas" model="ir.actions.act_window">
+        <field name="name">Campañas</field>
+        <field name="res_model">reto.campanas</field>
+        <field name="view_mode">tree,form</field>
+    </record> -->
+
+<!--    <record id="action_open_proveedores" model="ir.actions.act_window">
+        <field name="name">Proveedores</field>
+        <field name="res_model">reto.proveedores</field>
+        <field name="view_mode">tree,form</field>
+    </record>  -->
+
+<!--    <record id="action_open_compras" model="ir.actions.act_window">
+        <field name="name">Compras</field>
+        <field name="res_model">reto.compras</field>
+        <field name="view_mode">tree,form</field>
+    </record>  -->
+
+ <!--   <record id="action_open_pedido" model="ir.actions.act_window">
+        <field name="name">Pedido</field>
+        <field name="res_model">reto.pedido</field>
+        <field name="view_mode">tree,form</field>
+    </record>  -->
+
+<!--  <record id="action_open_prendas" model="ir.actions.act_window">
+        <field name="name">Prendas</field>
+        <field name="res_model">reto.prendas</field>
+        <field name="view_mode">tree,form</field>
+    </record>    -->
+
+ <!--  <record id="action_open_prendas" model="ir.actions.act_window">
+        <field name="name">Prendas</field>
+        <field name="res_model">reto.prendas</field>
+        <field name="view_mode">tree,form</field>
+    </record>    -->
+
+  <!-- <menuitem id="menu_2_proveedores" name="Proveedores" parent="menu_1" action="action_open_proveedores"/>   -->
+    <!-- <menuitem id="menu_2_compras" name="Compras" parent="menu_1" action="action_open_compras"/>   -->
+    <!--   <menuitem id="menu_2_linea_pedido" name="Linea pedido" parent="menu_1" action="action_open_linea_pedido"/>   -->
+      <!--<menuitem id="menu-2-prendas_sumatorio" name="Sumatorio de prendas" parent="menu_1" action="action_open_prendas_sumatorio"/> -->
+   <!--  <menuitem id="menu-2-campanas" name="Campañas" parent="menu_1" action="action_open_campanas"/> -->
+  <!--  <menuitem id="menu_2" name="Prendas" parent="menu_1" action="action_open_prendas" sequence="1"/> -->

@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<odoo>
+    <data>
+
+         <record id="view_ventas_tree" model="ir.ui.view">
+            <field name="name">reto.ventas.tree</field>
+            <field name="model">reto.ventas</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="num_venta"/>
+                    <field name="state"/>
+                    <field name="linea_venta_ids"/>
+                    <field name="fecha_venta"/>
+                    <field name="tot_prendas_venta"/>
+                    <field name="precio_total"/>
+
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_ventas_form" model="ir.ui.view">
+            <field name="name">reto.ventas.form</field>
+            <field name="model">reto.ventas</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                    <button string="Aprobar" type="object" name="aprobar_presupuesto"
+                    class="oe_highligth" states="borrador"/>
+                    <button string="Cancelar" type="object" name="cancelar_presupuesto"
+                        class="oe_highligth" states="borrador, aprobado"/>
+                    <field name="state" widget="statusbar" statusbar_visible="borrador,aprobado"/>
+                </header>
+                    <group>
+                         <field name="linea_venta_ids"/>
+                    </group>
+                    <group>
+                        <field name="num_venta" readonly="1"/>
+                    </group>
+                     <group>
+                         <field name="fecha_venta"/>
+                         <field name="tot_prendas_venta"/>
+                         <field name="precio_total"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+
+        <record id="view_linea_venta_tree" model="ir.ui.view">
+            <field name="name">reto.linea.venta.tree</field>
+            <field name="model">reto.linea.venta</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="prenda_id"/>
+                    <field name="color_id"/>
+                    <field name="talla_id"/>
+                    <field name="cantidad_p"/>
+                    <field name="p_total"/>
+                </tree>
+            </field>
+        </record>
+
+         <record id="view_linea_venta_form" model="ir.ui.view">
+            <field name="name">reto.linea.venta.form</field>
+            <field name="model">reto.linea.venta</field>
+            <field name="arch" type="xml">
+                <form>
+                    <group>
+                        <field name="id_proveedor"/>
+                        <field name="prenda_id"/>
+
+                    </group>
+                    <group>
+                        <field name="color_id"/>
+                        <field name="talla_id"/>
+                    </group>
+                    <group>
+                        <field name="cantidad_p"/>
+                        <field name="precio_p_may"/>
+                        <field name="precio_p_venta"/>
+                        <field name="p_total" readonly="1" forcé_save="1"/>
+                    </group>
+            </form>
+            </field>
+        </record>
+
+    </data>
+</odoo>

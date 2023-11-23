@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<odoo>
+    <record id="view_linea_pedido_tree" model="ir.ui.view">
+        <field name="name">Vista de lista de Linea Pedido</field>
+        <field name="model">reto.linea.pedido</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name" />
+            </tree>
+        </field>
+    </record>
+</odoo>

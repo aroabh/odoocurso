@@ -1,0 +1,30 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+
+acceso_pedido_administrador,acceso presupuesto administrador,model_reto_pedido,group_tienda_administrador,1,1,1,1
+acceso_linea_pedido_administrador,acceso presupuesto detalle administrador,model_reto_linea_pedido,group_tienda_administrador,1,1,1,1
+acceso_prenda_administrador,acceso recurso cinematografico administrador,model_reto_prenda,group_tienda_administrador,1,1,1,1
+acceso_update_wizard_administrador,acceso de administrador al wizard,model_update_wizard,group_tienda_administrador,1,1,1,1
+acceso_tallas_administrador,acceso tallas administrador,model_reto_tallas,group_tienda_administrador,1,1,1,1
+acceso_colores_administrador,acceso colores administrador,model_reto_colores,group_tienda_administrador,1,1,1,1
+acceso_ventas_administrador,acceso ventas administrador,model_reto_ventas,group_tienda_administrador,1,1,1,1
+acceso_linea_venta_administrador,acceso linea venta administrador,model_reto_linea_venta,group_tienda_administrador,1,1,1,1
+acceso_stock_administrador,acceso stock administrador,model_reto_stock,group_tienda_administrador,1,1,1,1
+
+
+acceso_pedido_dependiente,acceso pedido dependiente,model_reto_pedido,group_tienda_dependiente,1,0,0,0
+acceso_linea_pedido_dependiente,acceso linea pedido dependiente,model_reto_linea_pedido,group_tienda_dependiente,1,0,0,0
+acceso_prenda_dependiente,acceso prenda dependiente,model_reto_prenda,group_tienda_dependiente,1,0,0,0
+acceso_tallas_dependiente,acceso tallas dependiente,model_reto_tallas,group_tienda_dependiente,1,0,0,0
+acceso_colores_dependiente,acceso colores dependiente,model_reto_colores,group_tienda_dependiente,1,0,0,0
+acceso_ventas_dependiente,acceso ventas dependiente,model_reto_ventas,group_tienda_dependiente,1,1,1,0
+acceso_linea_venta_dependiente,acceso linea venta dependiente,model_reto_linea_venta,group_tienda_dependiente,1,1,1,0
+acceso_stock_dependiente,acceso stock dependiente,model_reto_stock,group_tienda_dependiente,1,0,0,0
+
+acceso_pedido_usuario,acceso pedido usuario,model_reto_pedido,group_tienda_usuario,0,0,0,0
+acceso_linea_pedido_usuario,acceso linea pedido usuario,model_reto_linea_pedido,group_tienda_usuario,0,0,0,0
+acceso_prenda_usuario,acceso prenda usuario,model_reto_prenda,group_tienda_usuario,1,0,0,0
+acceso_tallas_usuario,acceso tallas usuario,model_reto_tallas,group_tienda_usuario,1,0,0,0
+acceso_colores_usuario,acceso colores usuario,model_reto_colores,group_tienda_usuario,1,0,0,0
+acceso_ventas_usuario,acceso ventas usuario,model_reto_ventas,group_tienda_usuario,0,0,0,0
+acceso_linea_venta_usuario,acceso linea_venta usuario,model_reto_linea_venta,group_tienda_usuario,0,0,0,0
+acceso_stock_usuario,acceso stock usuario,model_reto_stock,group_tienda_usuario,1,0,0,0
