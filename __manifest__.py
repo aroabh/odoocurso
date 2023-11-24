@@ -21,6 +21,9 @@
         'report/reporte_pedido.xml',
         'wizard/update_wizard_views.xml',
         'wizard/update_wizard_action.xml'
-    ]
+    ],
+    'images': [
+        'static/img/iconotienda.png',
+    ],
 }
 

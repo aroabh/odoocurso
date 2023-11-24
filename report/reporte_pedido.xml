@@ -6,7 +6,7 @@
         <field name="report_type">qweb-pdf</field>
         <field name="report_name">tienda_ropa.report_ventas</field>
         <field name="report_file">tienda_ropa.report_ventas</field>
-        <field name="print_report_name">('Presupuesto - %s' %(object.name))</field>
+        <field name="print_report_name">('Presupuesto - %s' %(object.num_venta))</field>
         <field name="binding_model_id" ref="model_reto_ventas"/>
         <field name="binding_type">report</field>
     </record>
@@ -18,14 +18,17 @@
                     <div class="page">
                         <center>
 
+
                     <t t-if="o.state == 'borrador'">
-                        <div class="alert alert-danger" role="alert">El estado de este presupuesto es Borrador.
-                        </div>
+                        <div class="alert alert-warning d-inline-block" role="alert">El estado de este presupuesto es Borrador.</div>
+                    </t>
+                    <t t-elif="o.state == 'cancelado'">
+                        <div class="alert alert-danger d-inline-block" role="alert">El estado de este presupuesto es Cancelado.</div>
                     </t>
                     <t t-else="">
-                        <div class="alert alert-primary" role="alert">El estado de este presupuesto es Aprobado.
-                        </div>
+                        <div class="alert alert-primary d-inline-block" role="alert">El estado de este presupuesto es Aprobado.</div>
                     </t>
+
                 </center>
                         <div class="row">
                     <div class="col-3">
@@ -40,7 +43,7 @@
                     </div>
                 </div>
                         <table class="table table-sm" style="margin-top:30px;">
-                            <thead>
+                            <thead style="color: #5564eb;">
                         <th>Pedido</th>
                         <th>Proveedor</th>
                         <th>Prenda</th>
@@ -67,18 +70,18 @@
                         </table>
                         <div class="row justify-content-end" style="padding-top: 30px;">
                             <div class="col-3">
-                    <table class="table table-sm">
+                    <table class="table table-sm" >
                         <tbody>
                             <tr>
-                                <td>Subtotal:</td>
+                                <td style="color: #5564eb;">Subtotal:</td>
                                 <td class="text-right"><span t-field="o.base"/></td>
                             </tr>
                             <tr>
-                                <td>Impuestos:</td>
+                                <td style="color: #5564eb;">Impuestos:</td>
                                 <td class="text-right"><span t-field="o.impuestos"/></td>
                             </tr>
                             <tr>
-                                <td>Total:</td>
+                                <td style="color: blue;">Total:</td>
                                 <td class="text-right"><span t-field="o.precio_total"/></td>
                             </tr>
                         </tbody>

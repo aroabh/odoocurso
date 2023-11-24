@@ -35,6 +35,7 @@ class Ventas(models.Model):
         sequence_obj = self.env['ir.sequence']
         correlativo = sequence_obj.next_by_code('secuencia.numero.venta')
         variables['num_venta'] = correlativo
+        variables['name'] = correlativo
         return super(Ventas, self).create(variables)
 
     @api.depends('linea_venta_ids.p_total')
